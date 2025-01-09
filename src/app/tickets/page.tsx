@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { Ticket, tickets } from "@/data";
+import { ticketPath } from "@/paths";
 
 const TicketsPage = () => {
   return (
@@ -11,7 +12,7 @@ const TicketsPage = () => {
       <ul>
         {tickets.map((ticket: Ticket) => (
           <li key={ticket.id}>
-            <Link href={`/tickets/${ticket.id}`}>
+            <Link href={ticketPath(ticket.id)}>
               <span>{ticket.title}</span>
             </Link>
           </li>
