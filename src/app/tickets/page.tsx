@@ -5,15 +5,22 @@ import Link from "next/link";
 import { Ticket, tickets } from "@/data";
 import { ticketPath } from "@/paths";
 
+const TICKET_ICONS = {
+  OPEN:  "Open",
+  CLOSED: "Closed",
+  IN_PROGRESS: "In Progress",
+}
+
 const TicketsPage = () => {
   return (
     <div>
-      <h1>Ticket List</h1>
       <ul>
         {tickets.map((ticket: Ticket) => (
           <li key={ticket.id}>
-            <Link href={ticketPath(ticket.id)}>
-              <span>{ticket.title}</span>
+            <div>{TICKET_ICONS[ticket.status as keyof typeof TICKET_ICONS]}</div>
+            <h2>{ticket.title}</h2>
+            <Link href={ticketPath(ticket.id)} className="text-sm underline">
+              View
             </Link>
           </li>
         ))}

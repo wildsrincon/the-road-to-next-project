@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "lint-fix": "npx eslint . --fix"
+    "lint-fix": "next lint --fix",
+    "type": "tsc --noEmit"
   },
   "dependencies": {
     "next": "15.1.4",
